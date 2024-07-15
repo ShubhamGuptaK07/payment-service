@@ -1,7 +1,10 @@
 package com.demo.paymentservice.service;
 
 import com.demo.paymentservice.model.PaymentRequest;
+import com.demo.paymentservice.model.PaymentResponse;
 
 public interface PaymentService {
-    Long doPayment(PaymentRequest paymentRequest);
+
+    public Long doPayment(PaymentRequest paymentRequest);
+    public PaymentResponse getPaymentDetailByOrderId(long orderId) ;
 }

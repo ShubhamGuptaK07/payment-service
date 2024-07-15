@@ -1,6 +1,7 @@
 package com.demo.paymentservice.controller;
 
 import com.demo.paymentservice.model.PaymentRequest;
+import com.demo.paymentservice.model.PaymentResponse;
 import com.demo.paymentservice.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,4 +21,8 @@ public class PaymentController {
                 HttpStatus.OK);
     }
 
+    @GetMapping("/{orderId}")
+    public ResponseEntity<PaymentResponse> getPaymentDetailByOrderId(@PathVariable long orderId){
+        return  new ResponseEntity<>(paymentService.getPaymentDetailByOrderId(orderId),HttpStatus.OK);
+    }
 }
